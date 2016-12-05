@@ -15,7 +15,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
-                    <sourse>1.8</sourse>
+                    <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
@@ -28,6 +28,8 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <outputDirectory>${basedir}</outputDirectory>
+
                 </configuration>
             </plugin>
         </plugins>
