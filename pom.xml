@@ -29,6 +29,7 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <outputDirectory>${basedir}</outputDirectory>
+                    <finalName>server</finalName>
 
                 </configuration>
             </plugin>
