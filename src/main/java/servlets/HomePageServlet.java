@@ -26,12 +26,17 @@ public class HomePageServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        response.setContentType("text/html;charset=utf-8");
        String remove = request.getParameter("remove");
+
        if (remove != null){
            accountServer.removeUser();
            response.getWriter().println("Удален!");
            response.setStatus(HttpServletResponse.SC_OK);
            return;
        }
+       int limit = accountServer.getUsersLimit();
+       int count = accountServer.getUsersCount();
+
+       logger.info("Limit: {}. Count: {}", limit, count);
 
     }
 }
