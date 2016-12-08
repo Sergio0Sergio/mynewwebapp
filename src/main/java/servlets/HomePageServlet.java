@@ -1,7 +1,6 @@
 package servlets;
 
 import accountServer.AccountServer;
-import accountServer.AccountServerI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -45,7 +44,7 @@ public class HomePageServlet extends HttpServlet {
            response.setStatus(HttpServletResponse.SC_OK);
        }else{
            logger.info("User was rejected");
-           response.getWriter().println("Server is closed for mantenance!");
+           response.getWriter().println("Server is closed for maintenance!");
            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
        }
     }
