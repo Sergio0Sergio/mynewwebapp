@@ -38,5 +38,15 @@ public class HomePageServlet extends HttpServlet {
 
        logger.info("Limit: {}. Count: {}", limit, count);
 
+       if (limit > count){
+           logger.info("User pass");
+           accountServer.addNewUser();
+           response.getWriter().println("Hello, world!");
+           response.setStatus(HttpServletResponse.SC_OK);
+       }else{
+           logger.info("User was rejected");
+           response.getWriter().println("Server is closed for mantenance!");
+           response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+       }
     }
 }
