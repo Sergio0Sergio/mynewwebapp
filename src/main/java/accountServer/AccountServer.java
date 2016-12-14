@@ -6,11 +6,12 @@ package accountServer;
 public class AccountServer implements AccountServerI {
 
     private int userCount;
-    private int userLimit;
+    public int userLimit = 10;
 
-    public AccountServer(int userLimit){
+
+    public AccountServer(){
         this.userCount = 0;
-        this.userLimit = userLimit;
+
     }
 
     @Override
