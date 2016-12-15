@@ -17,6 +17,7 @@ import servlets.HomePageServlet;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sgrimanov on 06.12.2016.
@@ -31,7 +32,7 @@ public class Main {
 //            logger.error("Use port as the first argument");
 //            System.exit(1);
 //        }
-//
+
         String portString = "5050";//args[0];
         int port = Integer.valueOf(portString);
 
@@ -51,14 +52,14 @@ public class Main {
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);
-        resource_handler.setResourceBase("static/index.html");
+        resource_handler.setResourceBase("static");
 
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
         server.start();
-        logger.info("Server started");
+        TimeUnit.SECONDS.sleep(10);
         logger.info("Server started");
 
     }

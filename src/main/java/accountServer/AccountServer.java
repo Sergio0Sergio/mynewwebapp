@@ -6,7 +6,7 @@ package accountServer;
 public class AccountServer implements AccountServerI {
 
     private int userCount;
-    public int userLimit = 10;
+    public int usersLimit = 10;
 
 
     public AccountServer(){
@@ -27,12 +27,12 @@ public class AccountServer implements AccountServerI {
 
     @Override
     public int getUsersLimit() {
-        return userLimit;
+        return usersLimit;
     }
 
     @Override
     public void setUsersLimit(int usersLimit) {
-        this.userLimit = usersLimit;
+        this.usersLimit = usersLimit;
     }
 
     @Override
