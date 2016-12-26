@@ -33,7 +33,7 @@ public class Main {
 //            System.exit(1);
 //        }
 
-        String portString = "5050";//args[0];
+        String portString = "8080";//args[0];
         int port = Integer.valueOf(portString);
 
         logger.info("Starting at http:/127.0.0.1:" + portString);
@@ -59,7 +59,7 @@ public class Main {
         server.setHandler(handlers);
 
         server.start();
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(1);
         logger.info("Server started");
 
     }
