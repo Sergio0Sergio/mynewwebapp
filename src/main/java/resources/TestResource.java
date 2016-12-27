@@ -3,17 +3,18 @@ package resources;
 /**
  * Created by sg on 21.12.2016.
  */
-public class TestResources {
+@SuppressWarnings("UnusedDeclaration")
+public class TestResource {
 
-    private String name;
-    private int age;
+    private final String name;
+    private final int age;
 
-    public TestResources(String name,int age){
-        this.name = name;
-        this.age = age;
+    public TestResource(){
+        this.name = "";
+        this.age = ;
     }
 
-    public TestResources(){
+    public TestResource(){
         this.name = "";
         this.age = 0;
     }

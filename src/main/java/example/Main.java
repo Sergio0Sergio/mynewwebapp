@@ -11,6 +11,7 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import resources.TestResource;
 import servlets.AdminPageServlet;
 import servlets.HomePageServlet;
 
@@ -39,6 +40,7 @@ public class Main {
         logger.info("Starting at http:/127.0.0.1:" + portString);
 
         AccountServer accountServer = new AccountServer();
+        TestResource testResource = new TestResource();
 
         AccountServerControllerMBean serverStatistics = new AccountServerController(accountServer);
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
