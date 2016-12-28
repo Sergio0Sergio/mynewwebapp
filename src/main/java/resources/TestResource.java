@@ -10,13 +10,13 @@ public class TestResource {
     private final int age;
 
     public TestResource(){
-        this.name = "";
-        this.age = ;
+        name = "";
+        age = 0;
     }
 
-    public TestResource(){
-        this.name = "";
-        this.age = 0;
+    public TestResource(String name, int age){
+        this.name = name;
+        this.age = age;
     }
 
     public String getName(){
