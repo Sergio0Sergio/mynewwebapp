@@ -26,9 +26,10 @@ public class ResourcePageServlet extends HttpServlet {
 
     public ResourcePageServlet (ResourceServer resourceServer){}
 
+    @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        responce.setContentType("text/html:charset=utf-8");
+        response.setContentType("text/html:charset=utf-8");
         xmlFile = request.getParameter("path_to_resource");
         if (xmlFile != null){
             testResource = (TestResource)new ReadXMLFilesSax().readXML(xmlFile);
