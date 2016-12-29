@@ -18,6 +18,7 @@ public class HomePageServlet extends HttpServlet {
     public static final String PAGE_URL = "/home";
     private final AccountServer accountServer;
 
+
     public HomePageServlet(AccountServer accountServer){
         this.accountServer = accountServer;
     }

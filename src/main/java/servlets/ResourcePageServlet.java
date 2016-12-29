@@ -2,6 +2,9 @@ package servlets;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import resources.ReadXMLFilesSax;
+import resources.ResourceServer;
+import resources.TestResource;
 //import resources.TestResource;
 
 import javax.servlet.ServletException;
@@ -17,16 +20,24 @@ public class ResourcePageServlet extends HttpServlet {
 
     static final Logger logger = LogManager.getLogger(HomePageServlet.class.getName());
     public static final String PAGE_URL = "/resources";
-    //private final TestResource testResource;
+    private String xmlFile;
+    private TestResource testResource;
+    private ResourceServer resourceServer;
 
-    public ResourcePageServlet (){}
+    public ResourcePageServlet (ResourceServer resourceServer){}
 
-    public void doPost (HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException{
+    public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         responce.setContentType("text/html:charset=utf-8");
-        String resourcePath = request.getParameter("path_to_resource");
-        if (resourcePath != null){
-
+        xmlFile = request.getParameter("path_to_resource");
+        if (xmlFile != null){
+            testResource = (TestResource)new ReadXMLFilesSax().readXML(xmlFile);
+            resourceServer.setResource(testResource);
+            response.getWriter().println("All is ok!");
+            response.setStatus(HttpServletResponse.SC_OK);
+        }else {
+            response.getWriter().println("There's aint no filename!");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
 
