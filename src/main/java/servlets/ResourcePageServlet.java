@@ -29,8 +29,10 @@ public class ResourcePageServlet extends HttpServlet {
 
         response.setContentType("text/html:charset=utf-8");
         xmlFile = request.getParameter("path");
+        System.out.println("path = " + xmlFile);
         if (xmlFile != null){
-            testResource = (TestResource)new ReadXMLFilesSax().readXML(xmlFile);
+            testResource = ((TestResource)new ReadXMLFilesSax().readXML(xmlFile));
+            System.out.println("testResource name = " + testResource.getName());
             logger.info("resource created");
             System.out.println("testResource = "+testResource.toString());
             resourceServer.setResource(testResource);
