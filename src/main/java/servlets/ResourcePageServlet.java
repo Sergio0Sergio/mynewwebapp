@@ -24,13 +24,13 @@ public class ResourcePageServlet extends HttpServlet {
     private TestResource testResource;
     private ResourceServer resourceServer;
 
-    public ResourcePageServlet (ResourceServer resourceServer){}
+    public ResourcePageServlet (ResourceServer resourceServer){this.resourceServer = resourceServer;}
 
     @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         response.setContentType("text/html:charset=utf-8");
-        xmlFile = request.getParameter("path_to_resource");
+        xmlFile = request.getParameter("path");
         if (xmlFile != null){
             testResource = (TestResource)new ReadXMLFilesSax().readXML(xmlFile);
             resourceServer.setResource(testResource);
