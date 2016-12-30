@@ -40,22 +40,22 @@ public class Main {
 
         logger.info("Starting at http:/127.0.0.1:" + portString);
 
-        AccountServer accountServer = new AccountServer();
+        //AccountServer accountServer = new AccountServer();
         ResourceServer resourceServer = new ResourceServer();
 
-        AccountServerControllerMBean serverStatistics = new AccountServerController(accountServer);
-        ResourceServerControllerMBean serverStatistics1 = new ResourceServerController(resourceServer);
+        //AccountServerControllerMBean serverStatistics = new AccountServerController(accountServer);
+        ResourceServerControllerMBean serverStatistics = new ResourceServerController(resourceServer);
 
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        ObjectName name = new ObjectName("Admin:type=AccountServerController");
-        ObjectName resource = new ObjectName("Admin:type=ResourceServerController");
+        //ObjectName name = new ObjectName("Admin:type=AccountServerController");
+        ObjectName name = new ObjectName("Admin:type=ResourceServerController");
+        //mbs.registerMBean(serverStatistics, name);
         mbs.registerMBean(serverStatistics, name);
-        mbs.registerMBean(serverStatistics1, resource);
 
         Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new HomePageServlet(accountServer)), HomePageServlet.PAGE_URL);
-        context.addServlet(new ServletHolder(new AdminPageServlet(accountServer)), AdminPageServlet.PAGE_URL);
+        //context.addServlet(new ServletHolder(new HomePageServlet(accountServer)), HomePageServlet.PAGE_URL);
+        //context.addServlet(new ServletHolder(new AdminPageServlet(accountServer)), AdminPageServlet.PAGE_URL);
         context.addServlet(new ServletHolder(new ResourcePageServlet(resourceServer)), ResourcePageServlet.PAGE_URL);
 
         ResourceHandler resource_handler = new ResourceHandler();

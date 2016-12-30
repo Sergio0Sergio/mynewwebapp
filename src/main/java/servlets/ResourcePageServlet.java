@@ -2,9 +2,7 @@ package servlets;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import resources.ReadXMLFilesSax;
-import resources.ResourceServer;
-import resources.TestResource;
+import resources.*;
 //import resources.TestResource;
 
 import javax.servlet.ServletException;
@@ -33,7 +31,10 @@ public class ResourcePageServlet extends HttpServlet {
         xmlFile = request.getParameter("path");
         if (xmlFile != null){
             testResource = (TestResource)new ReadXMLFilesSax().readXML(xmlFile);
+            logger.info("resource created");
+            System.out.println("testResource = "+testResource.toString());
             resourceServer.setResource(testResource);
+
             response.getWriter().println("All is ok!");
             response.setStatus(HttpServletResponse.SC_OK);
         }else {
