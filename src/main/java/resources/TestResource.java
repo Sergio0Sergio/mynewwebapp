@@ -6,8 +6,8 @@ package resources;
 @SuppressWarnings("UnusedDeclaration")
 public class TestResource {
 
-    private final String name;
-    private final int age;
+    private String name;
+    private int age;
 
     public TestResource(){
         name = "";
@@ -25,5 +25,13 @@ public class TestResource {
 
     public int getAge(){
         return age;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setAge(int age){
+        this.age = age;
     }
 }
